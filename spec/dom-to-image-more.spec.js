@@ -533,6 +533,20 @@
                     .catch(done);
             });
 
+            it('should render defaults styles when resseted', function (done) {
+                loadTestPage(
+                    'defaultStyles/defaultStyles.html',
+                    'defaultStyles/style.css',
+                    'defaultStyles/control-image'
+                )
+                    .then(function () {
+                        return domtoimage.toSvg(domNode());
+                    })
+                    .then(check)
+                    .then(done)
+                    .catch(done);
+            });
+
             it('should honor zero-padding table elements', function (done) {
                 this.timeout(5000);
                 loadTestPage(
